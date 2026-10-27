@@ -476,3 +476,14 @@ html.touring main { padding-bottom: 180px; }
 @media (prefers-reduced-motion: reduce) { .sir, .sir-glow::before, .sir-glow::after, .orb b, .orb i { animation: none !important; } }
 .sir { grid-template-columns: minmax(0, 1fr); }
 .sir-bar input { width: 0; }
+
+/* product details */
+.dose .price { font-size: 17px; color: var(--ink); }
+.dose .price b { font-size: 20px; }
+.dose .dfacts { font-size: 14px; line-height: 1.45; color: var(--ink70); display: grid; gap: 4px; border-top: 2px solid var(--line); padding-top: 10px; }
+.dose .dfacts .label { font-size: 12px; }
+.inbox .total { justify-content: space-between; border-top: 2px solid var(--ink); padding-top: 10px; margin-top: 4px; font-weight: 600; }
+.inbox .total b { font-size: 22px; }
+.fineprint { font-size: 14px; line-height: 1.5; color: var(--ink70); max-width: 80ch; margin-top: 24px; }
+.band.coral .fineprint { color: var(--ink); margin-top: 0; }
+.dose .dfacts span { display: block; }

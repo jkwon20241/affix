@@ -16,23 +16,23 @@
       sections: [
         ['six', 'Six doses', 'Three Stick strips (Citrus C, Zinc Zn, Calm Mg) and three Stamp cartridges (Spark B12, Sun D3, Iron Fe). Filter by format and add any dose to your month.', 'doses range filter stick stamp citrus zinc calm spark sun iron flavor colors codes'],
         ['build', 'Build your month', 'Pick one Stick and one Stamp. The calendar shows a strip every day and a Stamp on Saturdays, plus what comes in the box.', 'build month calendar october choose pick save box refill cartridges order buy price']] },
-    app: { file: 'app.html', name: 'The app', summary: 'A working phone prototype of the Affix app: take today’s Stick, press and hold to Stamp this week’s site, check the month and change doses.',
+    app: { file: 'app.html', name: 'The app', summary: 'The Affix app: take today’s Stick, press and hold to Stamp this week’s site, check the month and change your doses.',
       sections: [
-        ['try', 'App prototype', 'A working phone with Today, Sites, Month and Me. Take the Stick, hold to Stamp, tap days in Month, change doses in Me.', 'app phone prototype try today sites month me stamp hold take reminders demo interactive'],
+        ['try', 'The app', 'A phone with Today, Sites, Month and Me. Take the Stick, hold to Stamp, tap days in Month, change doses in Me.', 'app phone prototype try today sites month me stamp hold take reminders interactive'],
         ['features', 'What it does', 'Picks the site, logs both doses and ships refills on time.', 'features app does reminders log refills site']] },
     about: { file: 'about.html', name: 'About', summary: 'Why Affix swaps pills for a tongue strip and a press-on Stamp, how the strip-and-dot identity works, the brand in photographs, and credits.',
       sections: [
-        ['idea', 'The idea', 'What if vitamins worked like stickers and shots? With the numbers: 10 seconds, 1 press a week, 4 sites, 0 pills.', 'idea why concept reason story pills'],
+        ['idea', 'The idea', 'What if vitamins worked like stickers and shots? With the numbers: 10 seconds, 1 press a week, 4 sites, 0 pills.', 'idea why reason story pills'],
         ['system', 'The system', 'Two shapes do the work: the strip for Stick, the dot for Stamp, the i that joins them, and patterns that spell copy in Morse.', 'system identity logo brand design strip dot morse pattern wordmark symbol'],
         ['world', 'Out in the world', 'Photographs of packs, boxes, the Stamp applicator, the app, tape, posters, billboards and signs.', 'photos mockups packaging box pack posters billboard world images gallery album merch tape'],
-        ['credits', 'Credits', 'Designed by Jennie Kwon. Affix is a concept brand and makes no health claims.', 'credits designer who made jennie kwon concept real']] }
+        ['credits', 'Credits', 'Brand identity, packaging, app and website by Jennie Kwon.', 'credits designer who made jennie kwon']] }
   };
   const ORDER = ['home', 'range', 'app', 'about'];
   const INDEX = []; ORDER.forEach(k => PAGES[k].sections.forEach(([id, title, text, kw]) => INDEX.push({ page: k, id, title, text, kw })));
   const byId = id => INDEX.find(s => s.id === id);
   const here = PAGES[page] || PAGES.home;
   const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const SUGGEST = { home: ['Stick or Stamp?', 'Where are the photos?'], range: ['Which doses are Stamps?', 'How do I save my month?'], app: ['How do I stamp?', 'What does the app do?'], about: ['Who designed Affix?', 'Is Affix real?'] }[page] || [];
+  const SUGGEST = { home: ['Stick or Stamp?', 'Where are the photos?'], range: ['Which doses are Stamps?', 'How do I save my month?'], app: ['How do I stamp?', 'What does the app do?'], about: ['Who designed Affix?', 'How much is a box?'] }[page] || [];
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const store = { get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
 
@@ -125,20 +125,21 @@
 
   /* ---------- answers ---------- */
   const STOP = new Set('a an the is are do does i you me my to of in on for and or with what where how can see show find which who about this that it its page site please tell there any some'.split(' '));
-  const SYN = { packaging: 'box pack', package: 'box pack', photo: 'photos', picture: 'photos', images: 'photos', buy: 'build month', order: 'build month', price: 'build month', cost: 'build month', real: 'concept credits', designer: 'credits', designed: 'credits', made: 'credits', logo: 'system wordmark symbol', shot: 'stamp arm', shots: 'stamp arm', tongue: 'stick strip', vitamin: 'doses range', vitamins: 'doses range', schedule: 'sites rotation', calendar: 'build month calendar' };
+  const SYN = { packaging: 'box pack', package: 'box pack', photo: 'photos', picture: 'photos', images: 'photos', buy: 'build month', order: 'build month', price: 'build month', cost: 'build month', real: 'credept credits', designer: 'credits', designed: 'credits', made: 'credits', logo: 'system wordmark symbol', shot: 'stamp arm', shots: 'stamp arm', tongue: 'stick strip', vitamin: 'doses range', vitamins: 'doses range', schedule: 'sites rotation', calendar: 'build month calendar' };
   function words(q) { let w = q.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(x => x && !STOP.has(x)); w = w.concat(...w.map(x => (SYN[x] || '').split(' ').filter(Boolean))); return [...new Set(w)]; }
   function search(q) { const w = words(q); if (!w.length) return [];
     return INDEX.map(s => { const hay = (s.title + ' ' + s.text + ' ' + s.kw).toLowerCase(); let sc = 0; w.forEach(x => { if (x.length > 1 && hay.includes(x)) sc += s.kw.split(' ').includes(x) ? 3 : 1; }); if (s.page === page) sc += 0.5; return { s, sc }; })
       .filter(r => r.sc >= 1).sort((a, b) => b.sc - a.sc).slice(0, 3).map(r => r.s); }
   function localAnswer(q, kind) {
     if (kind === 'summary' || /summar|overview|what('|’)?s on this page|tl;?dr/i.test(q)) return { text: `Here’s the ${here.name === 'Home' ? 'home' : here.name.replace(/^The /, '')} page. ${here.summary}`, go: here.sections.map(s => s[0]).slice(0, 3), tour: true };
-    if (/real|health|medical|safe|doctor/i.test(q)) return { text: 'Affix is a concept brand by Jennie Kwon. It isn’t a real product and makes no health claims, so for advice about vitamins, ask a doctor or pharmacist.', go: ['credits'] };
+    if (/real|health|medical|safe|doctor/i.test(q)) return { text: 'Affix doesn’t give medical advice. Talk to your doctor or pharmacist before starting any supplement, especially if you take medication.', go: ['six'] };
     if (/which.*stamps?|stamp doses/i.test(q)) return { text: 'The Stamps are Spark B12 and Sun D3, once a week, and Iron Fe, once a month.', go: ['six', 'range'] };
     if (/which.*(sticks?|strips?)|strip doses|stick doses/i.test(q)) return { text: 'The Stick strips are Citrus C and Zinc Zn for mornings, and Calm Mg for evenings.', go: ['six', 'range'] };
     if (/save.*month|build.*month|my month/i.test(q)) return { text: 'Pick one Stick and one Stamp in Build your month, then press Save my month. It shows up in the top bar.', go: ['build'] };
     if (/how (do|can) i stamp|how.*stamp work/i.test(q)) return { text: 'In the app, tap Stamp now, then press and hold the button until it clicks. The mark shows up on this week\u2019s site.', go: ['try'] };
     if (/what does the app do|app do/i.test(q)) return { text: 'The app picks the site for each Stamp, logs your strips and Stamps, and ships refills on time.', go: ['features', 'try'] };
-    if (/who (designed|made|created)|designer/i.test(q)) return { text: 'Affix was designed by Jennie Kwon.', go: ['credits'] };
+    if (/how much|price|cost|box/i.test(q)) return { text: 'A month is a Stick pack at $24 plus your Stamp: $28 for Spark or Sun, $12 for Iron. The applicator is free with your first box, and shipping is free.', go: ['build'] };
+    if (/who (designed|made|created)|designer/i.test(q)) return { text: 'Affix’s brand, packaging, app and website were designed by Jennie Kwon.', go: ['credits'] };
     if (/stick or stamp|difference/i.test(q)) return { text: 'Stick is a strip that melts on your tongue every morning. Stamp is a press on your arm or thigh once a week.', go: ['formats'] };
     if (/^(hi|hello|hey)\b/i.test(q) && q.length < 14) return { text: 'Hi. Ask me where something is, or say “walk me through it” for a tour.', go: [] };
     const hits = search(q);
@@ -146,7 +147,7 @@
     const name = s => s.page === page ? s.title : `${s.title} on ${PAGES[s.page].name}`;
     return { text: `I found it in ${name(hits[0])}.`, go: hits.map(h => h.id) };
   }
-  const RULES = () => `You are Ask Affix, the guide on the website of Affix, a concept vitamin brand designed by Jennie Kwon. Affix is not a real product and makes no health claims: never give medical or dosing advice; if asked, say it's a concept and suggest a doctor or pharmacist.
+  const RULES = () => `You are Ask Affix, the guide on the website of Affix, a vitamin brand (brand and website designed by Jennie Kwon). Never give medical or dosing advice and never claim health benefits; if asked, suggest a doctor or pharmacist. Prices: Stick packs $24/month, Spark and Sun $28/month, Iron $12/month, applicator free with the first box, free shipping.
 Talk like a friendly assistant: one or two short sentences, at most 40 words, no lists, no emoji, no greetings unless greeted, never mention being an AI or a model. Use only the site content below.
 Reply with only a JSON object: {"answer": string, "go": [up to 3 section ids from the index, most relevant first], "tour": boolean}. Set "tour" true when the visitor wants to be guided or shown around.
 

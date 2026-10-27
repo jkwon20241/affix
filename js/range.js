@@ -13,6 +13,8 @@
     <div class="code">${d.code}</div>
     <div class="meta"><h2 class="nm" style="font-size:22px;letter-spacing:0">${d.name}</h2><span class="label">${d.format === 'stick' ? 'Stick' : 'Stamp'} · ${d.when}</span></div>
     <p>${NOTE[d.key]}</p>
+    <p class="price"><b>$${d.price}</b> / month · ${d.count}</p>
+    <div class="dfacts"><span class="label">Supplement facts</span><span>${d.facts}</span></div>
     <button type="button" class="btn btn-line add" data-key="${d.key}" aria-pressed="false">Use in my month</button></article>`).join('');
 
   function syncCards() { document.querySelectorAll('.add').forEach(b => { const on = state.stick === b.dataset.key || state.stamp === b.dataset.key; b.setAttribute('aria-pressed', on); b.textContent = on ? 'In my month' : 'Use in my month'; }); }
@@ -45,7 +47,8 @@
     $('#oct-sum').textContent = `31 strips · ${stamps} ${stamps === 1 ? 'stamp' : 'stamps'}`;
     $('#inbox').innerHTML = `<li><i style="background:${st.color}"></i>One Stick pack · ${st.full} · 31 strips</li>
       <li><i class="dot" style="background:${sp.color}"></i>${stamps} Stamp ${stamps === 1 ? 'cartridge' : 'cartridges'} · ${sp.full}</li>
-      <li><i style="background:${C.mint}"></i>The applicator, in your first box only</li>`;
+      <li><i style="background:${C.mint}"></i>The applicator, free with your first box</li>
+      <li class="total"><span>Monthly total</span><b>$${st.price + sp.price}</b></li>`;
     syncCards();
   }
   render();

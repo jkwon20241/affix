@@ -1,4 +1,4 @@
-/* Affix brand drawing kit (concept v2: Stick + Stamp).
+/* Affix brand drawing kit (Stick + Stamp).
    Every function returns an SVG string. Shared by the website and the mockup artwork. */
 (function () {
   const C = {
@@ -8,12 +8,12 @@
   };
   // Stick doses are strips, Stamp doses are dots.
   const DOSES = [
-    { key: 'citrus', code: 'C', name: 'Citrus', full: 'Citrus C', color: '#FF9A3C', fg: C.ink, format: 'stick', when: 'Daily' },
-    { key: 'zinc', code: 'Zn', name: 'Zinc', full: 'Zinc Zn', color: '#7CD3C1', fg: C.ink, format: 'stick', when: 'Daily' },
-    { key: 'calm', code: 'Mg', name: 'Calm', full: 'Calm Mg', color: '#AA9EFF', fg: C.ink, format: 'stick', when: 'Evenings' },
-    { key: 'spark', code: 'B12', name: 'Spark', full: 'Spark B12', color: '#FF7DB8', fg: C.ink, format: 'stamp', when: 'Weekly' },
-    { key: 'sun', code: 'D3', name: 'Sun', full: 'Sun D3', color: '#FFC83A', fg: C.ink, format: 'stamp', when: 'Weekly' },
-    { key: 'iron', code: 'Fe', name: 'Iron', full: 'Iron Fe', color: '#9B3A2C', fg: C.paper, format: 'stamp', when: 'Monthly' }
+    { key: 'citrus', code: 'C', name: 'Citrus', full: 'Citrus C', color: '#FF9A3C', fg: C.ink, format: 'stick', when: 'Daily', price: 24, count: '31 strips', facts: 'Vitamin C (as ascorbic acid) 90 mg · 100% DV' },
+    { key: 'zinc', code: 'Zn', name: 'Zinc', full: 'Zinc Zn', color: '#7CD3C1', fg: C.ink, format: 'stick', when: 'Daily', price: 24, count: '31 strips', facts: 'Zinc (as zinc citrate) 11 mg · 100% DV' },
+    { key: 'calm', code: 'Mg', name: 'Calm', full: 'Calm Mg', color: '#AA9EFF', fg: C.ink, format: 'stick', when: 'Evenings', price: 24, count: '31 strips', facts: 'Magnesium (as magnesium glycinate) 100 mg · 24% DV' },
+    { key: 'spark', code: 'B12', name: 'Spark', full: 'Spark B12', color: '#FF7DB8', fg: C.ink, format: 'stamp', when: 'Weekly', price: 28, count: '4–5 cartridges', facts: 'Vitamin B12 (as methylcobalamin) 1,000 mcg per press' },
+    { key: 'sun', code: 'D3', name: 'Sun', full: 'Sun D3', color: '#FFC83A', fg: C.ink, format: 'stamp', when: 'Weekly', price: 28, count: '4–5 cartridges', facts: 'Vitamin D3 (as cholecalciferol) 175 mcg per press' },
+    { key: 'iron', code: 'Fe', name: 'Iron', full: 'Iron Fe', color: '#9B3A2C', fg: C.paper, format: 'stamp', when: 'Monthly', price: 12, count: '1 cartridge', facts: 'Iron (as ferrous bisglycinate) 18 mg per press' }
   ];
   const D = Object.fromEntries(DOSES.map(d => [d.key, d]));
 
@@ -57,7 +57,7 @@
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 640" aria-hidden="true"><rect x="70" y="0" width="300" height="96" rx="48" fill="${d.color}"/><rect x="0" y="52" width="440" height="588" rx="52" fill="${body}"/><rect x="40" y="92" width="360" height="10" rx="5" fill="${C.mintDeep}"/>` +
       put(wordmark({ dot: d.color }), 40, 170, 230, 230 * WM_H / WM_W) +
       `<text x="40" y="372" font-family="Host Grotesk, sans-serif" font-weight="700" font-size="48" letter-spacing="-1" fill="${C.ink}">Stick</text>` +
-      `<text x="40" y="410" font-family="Host Grotesk, sans-serif" font-size="19" fill="${C.ink}">${d.full} · 30 strips</text>` +
+      `<text x="40" y="410" font-family="Host Grotesk, sans-serif" font-size="19" fill="${C.ink}">${d.full} · 31 strips</text>` +
       `<circle cx="358" cy="558" r="42" fill="${d.color}"/><text x="358" y="569" text-anchor="middle" font-family="Host Grotesk, sans-serif" font-weight="700" font-size="30" fill="${d.fg}">${d.code}</text></svg>`;
   }
   function inner(svg) { return svg.replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '').replace(/^/, ''); }

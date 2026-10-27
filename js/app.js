@@ -1,4 +1,4 @@
-/* Affix app prototype: Today, Stamp flow, Sites, Month, Me. It's Saturday, October 10, 2026, 9:41. */
+/* Affix app: Today, Stamp flow, Sites, Month, Me. It's Saturday, October 10, 2026, 9:41. */
 (function () {
   const { B, C, still, store, bump, setDot } = window.Affix;
   const $ = s => document.querySelector(s);
@@ -101,7 +101,7 @@
       <span class="k">Me</span><span class="t">Sam Rivera</span>
       <div class="card"><h3>My doses</h3><span class="k">Stick · every morning</span><div class="chips">${chip('stick')}</div><span class="k">Stamp · ${monthly() ? 'monthly' : 'weekly'}</span><div class="chips">${chip('stamp')}</div></div>
       <div class="card"><h3>Reminders</h3>${sw('am', 'Morning strip at 8:00')}${sw('sat', 'Stamp day, Saturdays')}</div>
-      <div class="card"><h3>Next box</h3><span>Ships Saturday, October 24: one ${st().full} pack and ${carts} of ${sp().full}.</span></div>
+      <div class="card"><h3>Next box</h3><span>Ships Saturday, October 24: one ${st().full} pack and ${carts} of ${sp().full}. $${st().price + sp().price}, free shipping.</span></div>
     </section>`;
   }
 
@@ -126,7 +126,7 @@
   function takeStick() {
     const s = st(), ov = $('#overlay');
     ov.innerHTML = `<div class="sheet" role="dialog" aria-label="Stick in progress"><svg viewBox="0 0 220 150" aria-hidden="true"><ellipse cx="110" cy="80" rx="96" ry="66" fill="#E58C86"/><ellipse cx="110" cy="74" rx="84" ry="56" fill="${C.tongue}"/><rect id="ostrip" x="40" y="58" width="140" height="34" rx="17" fill="${s.color}" transform="rotate(-8 110 75)"/></svg>
-      <div class="count" id="ocount">10</div><span class="note">Seconds left, sped up for this demo</span><span>Let it melt. No water needed.</span></div>`;
+      <div class="count" id="ocount">10</div><span class="note">Seconds left</span><span>Let it melt. No water needed.</span></div>`;
     ov.hidden = false;
     const finish = () => { S.log[TODAY] = { ...(S.log[TODAY] || {}), stick: S.stick, t: NOW }; setTimeout(() => { ov.hidden = true; ov.innerHTML = ''; render(); done('stick'); }, still ? 0 : 500); };
     if (!gs) { $('#ocount').textContent = '0'; finish(); return; }
