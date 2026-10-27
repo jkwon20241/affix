@@ -4,7 +4,7 @@
   const still = /[?&]still/.test(location.search) || matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (still) document.documentElement.classList.add('still'), document.body.classList.add('still');
   const page = document.body.dataset.page;
-  const NAV = [['index.html', 'Home', 'home'], ['range.html', 'The range', 'range'], ['app.html', 'The app', 'app'], ['about.html', 'About', 'about']];
+  const NAV = [['index.html', 'Home', 'home'], ['range.html', 'Range', 'range'], ['app.html', 'Application', 'app'], ['about.html', 'About', 'about']];
 
   const store = {
     get() { try { return JSON.parse(localStorage.getItem('affix-month') || 'null'); } catch (e) { return null; } },
@@ -35,7 +35,7 @@
   }
 
   // Next page, so every page ends with a clear way on.
-  const NEXT = { home: ['range.html', 'The range', 'Six doses, two ways, and a builder for your month.'], range: ['app.html', 'The app', 'Stick, stamp and track it, all from your phone.'], app: ['about.html', 'About', 'The idea, the identity system and the brand out in the world.'], about: ['index.html', 'Back to the start', 'Vitamins you stick and stamp.'] }[page];
+  const NEXT = { home: ['range.html', 'Range', 'Six doses, two ways, and a builder for your month.'], range: ['app.html', 'Application', 'Stick, stamp and track it, all from your phone.'], app: ['about.html', 'About', 'The idea, the identity system and the brand out in the world.'], about: ['index.html', 'Back to the start', 'Vitamins you stick and stamp.'] }[page];
   if (foot && NEXT) { const a = document.createElement('a'); a.className = 'band nextpage'; a.href = NEXT[0];
     a.innerHTML = `<span><span class="label">Next</span><b>${NEXT[1]}</b><p>${NEXT[2]}</p></span><span class="arrow" aria-hidden="true">→</span>`; foot.before(a); }
   // A hairline under the top bar once the page scrolls.

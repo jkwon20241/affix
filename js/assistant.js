@@ -11,14 +11,14 @@
         ['formats', 'Two formats', 'Stick is a strip that dissolves on the tongue in about 10 seconds, every day. Stamp is a press-on applicator for the arm or thigh, once a week, leaving a mark that fades in a day.', 'stick stamp strip tongue arm thigh formats difference applicator mark'],
         ['how', 'How it works', 'Four steps: refills arrive, stick a strip, stamp a site, track it in the app.', 'steps how works routine refill box process'],
         ['sites', 'Body sites', 'The Stamp rotates through four sites: left arm, right arm, left thigh, right thigh.', 'sites body rotation arm thigh where week map'],
-        ['range', 'The range', 'Six doses, each with its own color: Citrus C, Zinc Zn and Calm Mg as strips; Spark B12, Sun D3 and Iron Fe as Stamps.', 'range doses vitamins colors codes citrus zinc calm spark sun iron b12 d3']] },
-    range: { file: 'range.html', name: 'The range', summary: 'All six doses, with filters for Stick and Stamp, and a builder where you pick one of each to see your October and what arrives in the box.',
+        ['range', 'Range', 'Six doses, each with its own color: Citrus C, Zinc Zn and Calm Mg as strips; Spark B12, Sun D3 and Iron Fe as Stamps.', 'range doses vitamins colors codes citrus zinc calm spark sun iron b12 d3']] },
+    range: { file: 'range.html', name: 'Range', summary: 'All six doses, with filters for Stick and Stamp, and a builder where you pick one of each to see your October and what arrives in the box.',
       sections: [
         ['six', 'Six doses', 'Three Stick strips (Citrus C, Zinc Zn, Calm Mg) and three Stamp cartridges (Spark B12, Sun D3, Iron Fe). Filter by format and add any dose to your month.', 'doses range filter stick stamp citrus zinc calm spark sun iron flavor colors codes'],
         ['build', 'Build your month', 'Pick one Stick and one Stamp. The calendar shows a strip every day and a Stamp on Saturdays, plus what comes in the box.', 'build month calendar october choose pick save box refill cartridges order buy price']] },
-    app: { file: 'app.html', name: 'The app', summary: 'The Affix app: take today’s Stick, press and hold to Stamp this week’s site, check the month and change your doses.',
+    app: { file: 'app.html', name: 'Application', summary: 'The Affix app: take today’s Stick, press and hold to Stamp this week’s site, check the month and change your doses.',
       sections: [
-        ['try', 'The app', 'A phone with Today, Sites, Month and Me. Take the Stick, hold to Stamp, tap days in Month, change doses in Me.', 'app phone prototype try today sites month me stamp hold take reminders interactive'],
+        ['try', 'Application', 'A phone with Today, Sites, Month and Me. Take the Stick, hold to Stamp, tap days in Month, change doses in Me.', 'app phone prototype try today sites month me stamp hold take reminders interactive'],
         ['features', 'What it does', 'Picks the site, logs both doses and ships refills on time.', 'features app does reminders log refills site']] },
     about: { file: 'about.html', name: 'About', summary: 'Why Affix swaps pills for a tongue strip and a press-on Stamp, how the strip-and-dot identity works, the brand in photographs, and credits.',
       sections: [
