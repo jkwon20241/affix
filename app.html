@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The app — Affix</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Try the Affix app: take today's Stick, stamp this week's site, check the month and change your doses.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=20261027a">
+</head>
+<body data-page="app">
+<a class="skip" href="#main">Skip to content</a>
+<header id="topbar"></header>
+<main id="main"><div class="bands">
+
+  <section class="band ink" id="try" aria-labelledby="h-app">
+    <div class="band-head split">
+      <div style="display:grid;gap:16px"><span class="pill"><i></i>The app</span><h1 id="h-app">The app does the remembering.</h1></div>
+      <p class="lede">It tells you which strip is today's, picks the site for this week's Stamp, and keeps the record. The phone below works. It's Saturday, October 10, and nothing is logged&nbsp;yet.</p>
+    </div>
+    <div class="proto">
+      <div class="phone proto-phone">
+        <div class="screen app-screen" id="screen" aria-label="Affix app prototype">
+          <div class="sbar"><span>9:41</span><span class="sb-r" aria-hidden="true"><i></i><i></i><i></i></span></div>
+          <div class="views" id="views"></div>
+          <nav class="apptabs" role="tablist" aria-label="App sections">
+            <button type="button" role="tab" data-tab="today"><span class="ti ti-today"></span>Today</button>
+            <button type="button" role="tab" data-tab="sites"><span class="ti ti-sites"></span>Sites</button>
+            <button type="button" role="tab" data-tab="month"><span class="ti ti-month"></span>Month</button>
+            <button type="button" role="tab" data-tab="me"><span class="ti ti-me"></span>Me</button>
+          </nav>
+          <div class="overlay" id="overlay" hidden></div>
+        </div>
+      </div>
+      <aside class="tryit" aria-labelledby="h-try">
+        <h2 id="h-try">Try it</h2>
+        <ol class="tasks" id="tasks">
+          <li data-task="stick"><span class="tk" aria-hidden="true"></span><div><b>Take today's Stick</b><p>On Today, tap Take. The strip dissolves in about ten seconds; here it's sped&nbsp;up.</p></div></li>
+          <li data-task="stamp"><span class="tk" aria-hidden="true"></span><div><b>Stamp this week's site</b><p>Tap Stamp now, then press and hold until it&nbsp;clicks.</p></div></li>
+          <li data-task="month"><span class="tk" aria-hidden="true"></span><div><b>Find today in Month</b><p>Tap any day to see what was logged on&nbsp;it.</p></div></li>
+          <li data-task="me"><span class="tk" aria-hidden="true"></span><div><b>Change a dose in Me</b><p>Pick a different Stick or Stamp. The rest of the app follows, and so does My&nbsp;month.</p></div></li>
+        </ol>
+        <p class="progress" id="progress" role="status" aria-live="polite"></p>
+        <button class="btn btn-line" type="button" id="reset">Start the day over</button>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band" id="features" aria-labelledby="h-feat">
+    <div class="band-head"><span class="pill"><i></i>What it does</span><h2 id="h-feat">Three jobs, done&nbsp;quietly.</h2></div>
+    <div class="features">
+      <div class="feature"><div class="ic" aria-hidden="true" id="ic-site"></div><h3>Picks the site</h3><p>Left arm, right arm, left thigh, right thigh, in turn. Never the same site twice in a&nbsp;row.</p></div>
+      <div class="feature"><div class="ic" aria-hidden="true" id="ic-log"></div><h3>Logs both</h3><p>One tap for the morning strip, one press for the weekly Stamp. The month view shows every&nbsp;day.</p></div>
+      <div class="feature"><div class="ic" aria-hidden="true" id="ic-refill"></div><h3>Refills on time</h3><p>Your box ships when the pack runs low, with the next cartridges&nbsp;inside.</p></div>
+    </div>
+  </section>
+
+  <footer class="band ink" id="foot"></footer>
+</div></main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="js/brand.js?v=20261027a"></script>
+<script src="js/site.js?v=20261027a"></script>
+<script src="js/assistant.js?v=20261027a"></script>
+<script src="js/app.js?v=20261027a"></script>
+</body>
+</html>

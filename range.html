@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The range — Affix</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Six Affix doses: three Stick strips for the tongue and three Stamp cartridges for the arm or thigh. Build a month from them.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=20261027a">
+</head>
+<body data-page="range">
+<a class="skip" href="#main">Skip to content</a>
+<header id="topbar"></header>
+<main id="main"><div class="bands">
+
+  <section class="band" id="six" aria-labelledby="h-range">
+    <div class="band-head split">
+      <div style="display:grid;gap:16px"><span class="pill"><i></i>The range</span><h1 id="h-range">Six doses, two&nbsp;ways.</h1></div>
+      <div style="display:grid;gap:20px"><p class="lede">Three Stick strips for the tongue and three Stamp cartridges for the arm or thigh. Every dose has a code and a color, and the color is what you&nbsp;see.</p>
+        <div class="filters" role="group" aria-label="Show">
+          <button type="button" data-f="all" aria-pressed="true">All six</button><button type="button" data-f="stick" aria-pressed="false">Stick</button><button type="button" data-f="stamp" aria-pressed="false">Stamp</button>
+        </div></div>
+    </div>
+    <div class="doses" id="doses"></div>
+  </section>
+
+  <section class="band mint" id="build" aria-labelledby="h-build">
+    <div class="band-head split">
+      <div style="display:grid;gap:16px"><span class="pill"><i></i>Build your month</span><h2 id="h-build">Pick one Stick and one&nbsp;Stamp.</h2></div>
+      <p class="lede">The calendar shows your October: a strip every day, and a Stamp on Saturdays. This is a concept, so nothing is ordered or&nbsp;charged.</p>
+    </div>
+    <div class="build">
+      <form class="choose" id="choose">
+        <fieldset><legend class="label">Stick · every morning</legend><div class="opt" id="opt-stick"></div></fieldset>
+        <fieldset><legend class="label">Stamp · on Saturdays</legend><div class="opt" id="opt-stamp"></div></fieldset>
+        <div class="actions"><button class="btn btn-ink" type="submit" id="save">Save my month</button></div>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+      <div class="summary" aria-labelledby="h-oct">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 id="h-oct">October</h3><span class="label" id="oct-sum"></span></div>
+        <div class="cal" id="cal"></div>
+        <div style="display:grid;gap:10px"><span class="label">In the box</span><ul class="inbox" id="inbox"></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="band ink" id="foot"></footer>
+</div></main>
+<script src="js/brand.js?v=20261027a"></script>
+<script src="js/site.js?v=20261027a"></script>
+<script src="js/assistant.js?v=20261027a"></script>
+<script src="js/range.js?v=20261027a"></script>
+</body>
+</html>
