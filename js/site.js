@@ -31,7 +31,7 @@
       <div class="foot-row">
         <span class="wm">${B.wordmark({ letters: C.paper, title: 'Affix' })}</span>
         <nav aria-label="Footer">${NAV.map(([h, l]) => `<a href="${h}">${l}</a>`).join('')}</nav>
-      </div></div>`;
+      </div>${page === 'about' ? `<p class="foot-credit">Designed by Jennie Kwon · <a href="https://www.jennienhynkwon.work/" target="_blank" rel="noopener">jennienhynkwon.work ↗</a></p>` : ''}</div>`;
   }
 
   // Next page, so every page ends with a clear way on.

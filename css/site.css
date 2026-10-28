@@ -269,6 +269,9 @@ main { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: m
 .foot nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 .foot nav a { color: var(--paper); text-decoration: none; font-weight: 600; font-size: 17px; }
 .foot nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.foot-credit { margin: 0; max-width: none; padding-top: 20px; border-top: 1px solid rgba(246,244,239,.18); font-size: 14px; line-height: 1.5; color: var(--on-ink-muted); }
+.foot-credit a { color: var(--paper); text-decoration: underline; text-underline-offset: 3px; }
+.foot-credit a:hover { text-decoration-thickness: 2px; }
 .foot .note { font-size: 16px; color: var(--on-ink-muted); max-width: 62ch; }
 body.still .foot .morse svg { animation: none; }
 .band-head.split h1 { font-size: clamp(44px, 5.4vw, 84px); overflow-wrap: break-word; }
