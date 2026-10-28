@@ -36,7 +36,7 @@
   const box = `<svg viewBox="0 0 160 120"><rect x="10" y="20" width="140" height="90" rx="16" fill="${C.mint}"/>${B.put(B.wordmark(), 36, 52, 88, 40)}</svg>`;
   const tongue = `<svg viewBox="0 0 160 120"><ellipse cx="80" cy="64" rx="70" ry="50" fill="${C.tongue}"/><rect x="28" y="50" width="104" height="28" rx="14" fill="${B.D.citrus.color}" transform="rotate(-10 80 64)"/></svg>`;
   const stamp = `<svg viewBox="0 0 160 120"><rect x="44" y="0" width="72" height="140" rx="36" fill="#C68A63"/><circle cx="80" cy="76" r="16" fill="${B.D.spark.color}"/>${B.put(B.applicator('spark'), 92, 0, 36, 84, 16)}</svg>`;
-  const phone = `<svg viewBox="0 0 160 120"><rect x="46" y="0" width="68" height="120" rx="14" fill="${C.paper}"/>${B.put(B.bodyMap({ site: 2, numbers: false }), 52, 14, 56, 82)}</svg>`;
+  const phone = `<svg viewBox="0 0 160 120"><rect x="51.25" y="0" width="57.5" height="120" rx="10.2" fill="${C.paper}"/><rect x="71.7" y="3.6" width="16.6" height="4.9" rx="2.45" fill="${C.ink}"/>${B.put(B.bodyMap({ site: 2, numbers: false }), 54, 18, 52, 80)}</svg>`;
   const steps = [[box, 'Refills arrive', 'A small box each month: a Stick pack and four Stamp cartridges.'], [tongue, 'Stick a strip', 'Every morning. Press one strip onto your tongue.'], [stamp, 'Stamp a site', 'Once a week, on the arm or thigh the app picks.'], [phone, 'Track it', 'The app logs both and shows what comes next.']];
   $('#steps').innerHTML = steps.map(([ic, h, p], i) => `<li><div class="ic" aria-hidden="true">${ic}</div><span class="n">Step ${i + 1}</span><h3>${h}</h3><p>${p}</p></li>`).join('');
 

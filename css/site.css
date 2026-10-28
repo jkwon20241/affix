@@ -278,12 +278,29 @@ body.still .foot .morse svg { animation: none; }
 .band.ink .screen .btn-ink { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
 /* ---------- app prototype ---------- */
-.proto { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: 32px clamp(32px, 6vw, 96px); align-items: start; justify-content: center; }
+.proto { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 32px clamp(32px, 6vw, 96px); align-items: start; justify-content: center; container-type: inline-size; }
 @media (max-width: 860px) { .proto { grid-template-columns: minmax(0, 1fr); justify-items: center; } }
-.proto-phone { width: 100%; max-width: 400px; }
-.app-screen { aspect-ratio: 390 / 820; padding: 0; gap: 0; background: var(--paper); font-size: 15px; line-height: 1.4; }
-.sbar { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px 6px; font-size: 14px; font-weight: 600; flex: none; }
-.sb-r { display: flex; gap: 4px; } .sb-r i { width: 16px; height: 9px; border-radius: 3px; background: currentColor; opacity: .85; } .sb-r i:first-child { width: 9px; border-radius: 50%; }
+/* iPhone 17 Pro, front. Every size is in iPhone points (--u = 1pt): 440 x 906 overall with buttons,
+   body 434 x 906, screen 402 x 874 at (19, 16) with 62pt corners, Dynamic Island 125 x 37, 11pt below the screen top. */
+.proto-phone { --pw: min(420px, 100cqw); --u: calc(var(--pw) / 440); width: var(--pw); max-width: none; position: relative; isolation: isolate;
+  padding: calc(16 * var(--u)) calc(19 * var(--u)); border-radius: 0;
+  --metal-l: #F4F5F6; --metal: #D5D7DA; --metal-d: #A6A9AD; --btn: linear-gradient(90deg, var(--metal-d), var(--metal) 50%, var(--metal-l));
+  background:
+    var(--btn) left 0 top calc(168 * var(--u)) / calc(5 * var(--u)) calc(34 * var(--u)) no-repeat,
+    var(--btn) left 0 top calc(232 * var(--u)) / calc(5 * var(--u)) calc(62 * var(--u)) no-repeat,
+    var(--btn) left 0 top calc(310 * var(--u)) / calc(5 * var(--u)) calc(62 * var(--u)) no-repeat,
+    var(--btn) right 0 top calc(252 * var(--u)) / calc(5 * var(--u)) calc(98 * var(--u)) no-repeat,
+    linear-gradient(var(--metal-d), var(--metal-d)) right calc(.5 * var(--u)) top calc(540 * var(--u)) / calc(4 * var(--u)) calc(64 * var(--u)) no-repeat; }
+.proto-phone::before { content: ""; position: absolute; z-index: -1; inset: 0 calc(3 * var(--u)); border-radius: calc(77 * var(--u));
+  border: calc(6 * var(--u)) solid transparent;
+  background: linear-gradient(#0A0A0B, #0A0A0B) padding-box, linear-gradient(90deg, var(--metal-l), var(--metal) 8%, var(--metal-d) 50%, var(--metal) 92%, var(--metal-l)) border-box; }
+.proto-phone::after { content: ""; position: absolute; z-index: 6; top: calc(27 * var(--u)); left: 50%; width: calc(125 * var(--u)); height: calc(37 * var(--u)); transform: translateX(-50%); border-radius: 99px;
+  background: radial-gradient(circle at calc(104.5 * var(--u)) 50%, #3A4A6B 0 calc(1.5 * var(--u)), #11151F calc(1.6 * var(--u)) calc(5.5 * var(--u)), transparent calc(5.6 * var(--u))), #000; pointer-events: none; }
+.app-screen { aspect-ratio: 402 / 874; border-radius: calc(62 * var(--u)); padding: 0; gap: 0; background: var(--paper); font-size: 15px; line-height: 1.4; }
+.app-screen::after { content: ""; position: absolute; z-index: 6; left: 50%; bottom: calc(8 * var(--u)); width: calc(139 * var(--u)); height: calc(5 * var(--u)); transform: translateX(-50%); border-radius: 99px; background: var(--ink); pointer-events: none; }
+.sbar { display: grid; grid-template-columns: calc(138.5 * var(--u)) 1fr calc(138.5 * var(--u)); align-items: center; height: calc(54 * var(--u)); padding-top: calc(5 * var(--u)); font-size: calc(17 * var(--u)); font-weight: 600; letter-spacing: -.02em; flex: none; }
+.sbar > span:first-child { justify-self: center; }
+.sb-r { grid-column: 3; justify-self: center; display: flex; } .sb-r svg { width: calc(72 * var(--u)); height: auto; display: block; }
 .views { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
 .views::-webkit-scrollbar { display: none; }
 .view { padding: 8px 18px 20px; display: grid; gap: 14px; align-content: start; }
@@ -304,7 +321,7 @@ body.still .foot .morse svg { animation: none; }
 .wide { width: 100%; justify-content: center; padding: 13px 18px; font-size: 15px; }
 .note { font-size: 13px; color: var(--ink70); }
 .streak { display: flex; gap: 6px; } .streak b { height: 10px; flex: 1; border-radius: 5px; background: var(--line); }
-.apptabs { flex: none; display: grid; grid-template-columns: repeat(4, 1fr); background: var(--white); padding: 8px 4px 18px; border-top: 1px solid var(--line); }
+.apptabs { flex: none; display: grid; grid-template-columns: repeat(4, 1fr); background: var(--white); padding: 8px 4px calc(26 * var(--u)); border-top: 1px solid var(--line); }
 .apptabs button { font: inherit; font-size: 12px; font-weight: 600; color: var(--ink60); background: none; border: 0; display: grid; justify-items: center; gap: 4px; padding: 6px 0; cursor: pointer; border-radius: 12px; }
 .apptabs button[aria-selected="true"] { color: var(--ink); }
 .apptabs button[aria-selected="true"] .ti { background: var(--ink); }

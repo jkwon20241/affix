@@ -107,6 +107,10 @@
 
   /* ---------- render ---------- */
   const screen = $('#screen'), views = $('#views');
+  // The screen is drawn at iPhone 17 Pro proportions. On a small viewport, shrink the app content with it
+  // so a narrow page shows the same layout as the 384px desktop screen instead of rewrapping.
+  function fitScreen() { const z = Math.min(1, screen.clientWidth / 384); [views, $('.apptabs'), $('#overlay')].forEach(el => { el.style.zoom = z < 1 ? z.toFixed(3) : ''; }); }
+  fitScreen(); addEventListener('resize', fitScreen);
   function render() {
     const v = S.sub || S.view;
     views.innerHTML = { today: vToday, stamp: vStamp, sites: vSites, month: vMonth, me: vMe }[v]();
