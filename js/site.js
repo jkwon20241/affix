@@ -39,6 +39,7 @@
   if (foot && NEXT) { const a = document.createElement('a'); a.className = 'band nextpage'; a.href = NEXT[0];
     a.innerHTML = `<span><span class="label">Next</span><b>${NEXT[1]}</b><p>${NEXT[2]}</p></span><span class="arrow" aria-hidden="true">→</span>`; foot.before(a); }
   // A hairline under the top bar once the page scrolls.
+  if (top) { const setTb = () => document.documentElement.style.setProperty('--tb', top.offsetHeight + 'px'); setTb(); addEventListener('resize', setTb); }
   if (top) { const onScroll = () => top.classList.toggle('scrolled', scrollY > 8); addEventListener('scroll', onScroll, { passive: true }); onScroll(); }
 
   // Living dot: the logo dot and the nav marker take a dose color.

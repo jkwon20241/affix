@@ -610,8 +610,10 @@ body, body::before, #topbar { background: var(--page); }
 main { container-type: inline-size; }
 #foot { margin-inline: calc((100% - 100cqw) / 2); padding-inline: max(0px, calc(var(--edge) - 16px)); }
 /* hero: smaller centered wordmark that fills the first screen on its own (2026-11-13) */
-@media (min-width: 861px) {
-  .hero .wmbig { min-height: calc(100svh - 76px - 8px - var(--pad)); margin-bottom: 0; padding-bottom: calc(var(--pad) + 24px); display: flex; align-items: center; justify-content: center; }
-  .hero .wmbig svg { width: min(62%, 860px, (100svh - 320px) * 2.2); height: auto; }
-  .hero-row { padding-top: clamp(32px, 4vw, 64px); }
-}
+/* --tb is the sticky top bar's height, set by site.js */
+.hero .wmbig { min-height: calc(100svh - var(--tb, 76px) - 8px - var(--pad)); margin-bottom: 0; padding-bottom: calc(var(--pad) + 24px); display: flex; align-items: center; justify-content: center; }
+.hero .wmbig svg { width: min(62%, 860px, (100svh - 320px) * 2.2); height: auto; }
+.hero-row { padding-top: clamp(32px, 4vw, 64px); }
+@media (max-width: 860px) { .hero .wmbig svg { width: min(68%, 420px); } .hero .wmbig { padding-bottom: var(--pad); } }
+/* smaller footer wordmark (2026-11-13) */
+.foot .wm { width: min(200px, 48vw); }
