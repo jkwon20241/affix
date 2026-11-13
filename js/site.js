@@ -29,7 +29,7 @@
     foot.innerHTML = `<div class="foot">
       <div class="morse" aria-hidden="true"><svg viewBox="0 0 ${m.width * 2} 40" width="${m.width * 2}" height="40">${s}</svg></div>
       <div class="foot-row">
-        <span class="wm">${B.wordmark({ letters: C.paper, title: 'Affix' })}</span>
+        <span class="wm">${B.wordmark({ letters: C.ink, title: 'Affix' })}</span>
         <nav aria-label="Footer">${NAV.map(([h, l]) => `<a href="${h}">${l}</a>`).join('')}</nav>
       </div>${page === 'about' ? `<p class="foot-credit">Designed by Jennie Kwon · <a href="https://www.jennienhynkwon.work/" target="_blank" rel="noopener">jennienhynkwon.work ↗</a></p>` : ''}</div>`;
   }

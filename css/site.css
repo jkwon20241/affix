@@ -547,3 +547,8 @@ body, body::before, #topbar { background: var(--page); }
 .mini { border: 0; padding: 10px 16px; }
 .mini.line { background: var(--white); }
 .inbox .total { border-top: 2px solid var(--rule); }
+/* footer on a light band (2026-11-13) */
+.foot nav a { color: var(--ink); }
+.foot .note { color: var(--ink70); }
+.foot-credit { border-top: 2px solid var(--rule); color: var(--ink70); }
+.foot-credit a { color: var(--ink); }
