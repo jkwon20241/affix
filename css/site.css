@@ -642,3 +642,7 @@ main { container-type: inline-size; }
 /* smaller header logo */
 .brand .sy { width: 36px; height: 36px; }
 @media (max-width: 860px) { .brand .sy { width: 32px; height: 32px; } }
+/* Ask bar sits higher off the bottom edge (2026-11-13) */
+.sir { bottom: calc(clamp(56px, 12vh, 128px) + env(safe-area-inset-bottom, 0px)); }
+.sir-out { max-height: min(56vh, 520px); }
+@media (max-width: 520px) { .sir { bottom: calc(40px + env(safe-area-inset-bottom, 0px)); } }
