@@ -41,7 +41,7 @@
     s += `<rect x="102" y="300" width="74" height="215" rx="37" fill="${body}"/><rect x="184" y="300" width="74" height="215" rx="37" fill="${body}"/>`;
     SITES.forEach(([x, y], i) => {
       const on = i + 1 === site;
-      s += on ? `<circle class="site site-${i + 1} on" cx="${x}" cy="${y}" r="22" fill="${active}"/>` : `<circle class="site site-${i + 1}" cx="${x}" cy="${y}" r="20.5" fill="${fill}" stroke="${ring}" stroke-width="3"/>`;
+      s += on ? `<circle class="site site-${i + 1} on" cx="${x}" cy="${y}" r="22" fill="${active}"/>` : `<circle class="site site-${i + 1}" cx="${x}" cy="${y}" r="22" fill="${fill}"/>`;
       if (numbers) s += `<text x="${x}" y="${y + 6.5}" text-anchor="middle" font-family="Host Grotesk, sans-serif" font-weight="700" font-size="18" fill="${on ? C.ink : ring}">${i + 1}</text>`;
     });
     return s + '</svg>';

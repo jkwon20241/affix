@@ -507,3 +507,43 @@ html.touring main { padding-bottom: 180px; }
 .fineprint { font-size: 14px; line-height: 1.5; color: var(--ink70); max-width: 80ch; margin-top: 24px; }
 .band.coral .fineprint { color: var(--ink); margin-top: 0; }
 .dose .dfacts span { display: block; }
+
+/* ---------- mint site, no black outlines (2026-11-13) ----------
+   The page itself is mint; cream stays only inside the app screens.
+   Every ink-outlined control or box becomes a filled shape; rules use the soft line color. */
+:root { --page: var(--mint); --rule: rgba(17, 19, 22, .14); }
+body, body::before, #topbar { background: var(--page); }
+.pill, .dose, .feature, .facts div { background: var(--page); }
+.band.mint .pill { background: var(--white); }
+.band.mint .dose, .band.mint .feature, .band.mint .facts div { background: var(--white); }
+.btn { border: 0; padding: 17px 28px; }
+.btn-line { background: var(--white); color: var(--ink); }
+.btn-line:hover { background: #EDEBE6; }
+.band.ink .btn-line, .ask-tour .btn-line { background: var(--raised); color: var(--paper); }
+.screen .btn { padding: 14px 20px; }
+.askbtn { border: 0; background: var(--white); padding: 11px 18px 11px 16px; }
+.askbtn:hover, .askbtn[aria-expanded="true"] { background: #EDEBE6; }
+@media (max-width: 860px) { .askbtn { padding: 9px 15px 9px 13px; } }
+.filters button { border: 0; background: var(--page); padding: 12px 20px; }
+.band.mint .filters button { background: var(--white); }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.dose { border: 0; }
+.dose:hover, .dose:focus-within { transform: translateY(-3px); }
+.opt span { border: 0; }
+.opt input:checked + span { background: var(--ink); color: var(--paper); }
+.chips button { border: 0; }
+.chips button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.sir-card { border: 0; background: var(--page); }
+.sir-card:hover { background: #A6E6C8; }
+.nextpage { border: 0; background: var(--white); }
+.nextpage:hover { background: var(--white); }
+.weeks button { border-top: 2px solid var(--rule); }
+.weeks li:last-child button { border-bottom: 2px solid var(--rule); }
+.weeks .no { border: 0; background: var(--page); }
+.band.mint .weeks .no { background: var(--white); }
+.slist li { border-top: 2px solid var(--rule); }
+.slist li:last-child { border-bottom: 2px solid var(--rule); }
+.slist .n { border: 0; background: var(--line); }
+.mini { border: 0; padding: 10px 16px; }
+.mini.line { background: var(--white); }
+.inbox .total { border-top: 2px solid var(--rule); }

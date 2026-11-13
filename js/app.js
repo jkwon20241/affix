@@ -178,7 +178,7 @@
   render();
 
   /* ---------- feature icons ---------- */
-  $('#ic-site').innerHTML = `<svg viewBox="0 0 120 48" height="48">${[0, 1, 2, 3].map(i => `<circle cx="${18 + i * 28}" cy="24" r="12" fill="${i === 1 ? C.coral : 'none'}" stroke="${C.ink}" stroke-width="${i === 1 ? 0 : 3}"/>`).join('')}</svg>`;
+  $('#ic-site').innerHTML = `<svg viewBox="0 0 120 48" height="48">${[0, 1, 2, 3].map(i => `<circle cx="${18 + i * 28}" cy="24" r="12" fill="${i === 1 ? C.coral : C.white}"/>`).join('')}</svg>`;
   $('#ic-log').innerHTML = `<svg viewBox="0 0 120 48" height="48"><rect x="4" y="16" width="70" height="16" rx="8" fill="${st().color}"/><circle cx="96" cy="24" r="14" fill="${sp().color}"/></svg>`;
   $('#ic-refill').innerHTML = `<svg viewBox="0 0 120 48" height="48"><rect x="4" y="6" width="80" height="38" rx="10" fill="${C.mint}"/>${B.put(B.wordmark(), 16, 16, 56, 25)}</svg>`;
 })();
