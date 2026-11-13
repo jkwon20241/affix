@@ -603,3 +603,9 @@ body, body::before, #topbar { background: var(--page); }
 /* header: symbol only (2026-11-13) */
 .brand .sy { width: 48px; height: 48px; }
 @media (max-width: 860px) { .brand .sy { width: 40px; height: 40px; } }
+/* header + footer run close to the window edges (2026-11-13) */
+:root { --edge: clamp(16px, 2.2vw, 32px); }
+#topbar { padding-left: max(var(--edge), env(safe-area-inset-left, 0px)); padding-right: max(var(--edge), env(safe-area-inset-right, 0px)); }
+.bar { max-width: none; }
+main { container-type: inline-size; }
+#foot { margin-inline: calc((100% - 100cqw) / 2); padding-inline: max(0px, calc(var(--edge) - 16px)); }
