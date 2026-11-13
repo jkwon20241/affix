@@ -15,7 +15,7 @@
   const top = document.getElementById('topbar');
   if (top) {
     top.innerHTML = `<div class="bar">
-      <a class="brand" href="index.html" aria-label="Affix home"><span class="sy">${B.symbol({ title: '' })}</span><span class="wm">${B.wordmark({ title: '' })}</span></a>
+      <a class="brand" href="index.html" aria-label="Affix home"><span class="sy">${B.symbol({ tile: '#A6E6C8', title: '' })}</span></a>
       <nav class="mainnav" aria-label="Main">${NAV.map(([h, l, k]) => `<a href="${h}"${k === page ? ' aria-current="page"' : ''}>${l}</a>`).join('')}</nav>
       <a class="monthbtn" href="range.html#build"><span class="lbl">My month</span><span class="count" aria-label="items">${monthCount()}</span></a>
     </div>`;

@@ -600,3 +600,6 @@ body, body::before, #topbar { background: var(--page); }
 .ask-count i { background: var(--mint3); }
 .ask-count i.done { background: var(--ink); }
 .ask-end { color: var(--ink); }
+/* header: symbol only (2026-11-13) */
+.brand .sy { width: 48px; height: 48px; }
+@media (max-width: 860px) { .brand .sy { width: 40px; height: 40px; } }
