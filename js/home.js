@@ -13,8 +13,18 @@
       .to(path, { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut' })
       .from(dot, { y: -520, duration: 0.55, ease: 'power2.in' }, '-=0.25')
       .to(dot, { scaleX: 1.25, scaleY: 0.8, transformOrigin: '50% 100%', duration: 0.1, ease: 'power1.out' })
-      .to(dot, { scaleX: 1, scaleY: 1, duration: 0.6, ease: 'elastic.out(1, 0.45)' });
+      .to(dot, { scaleX: 1, scaleY: 1, duration: 0.6, ease: 'elastic.out(1, 0.45)' })
+      .call(showCue, null, '-=0.3');
   }
+  // Scroll cue: once the wordmark has landed, a dot keeps dropping down a pill to ask for a scroll.
+  function showCue() { cue.classList.add('on'); }
+  const cue = document.createElement('a');
+  cue.className = 'scrollcue'; cue.href = '#h-hero'; cue.setAttribute('aria-label', 'Scroll down');
+  cue.innerHTML = '<span class="track" aria-hidden="true"><i></i></span><span class="lbl" aria-hidden="true">Scroll</span>';
+  $('#wmbig').after(cue);
+  if (!gs) setTimeout(showCue, 200);
+  const hideCue = () => cue.classList.toggle('gone', scrollY > 40);
+  addEventListener('scroll', hideCue, { passive: true }); hideCue();
 
   // Format art
   $('#art-stick').innerHTML = `<svg viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="160" rx="170" ry="128" fill="#E58C86"/><ellipse cx="200" cy="150" rx="150" ry="110" fill="${C.tongue}"/><rect x="2" y="0" width="12" height="300" fill="none"/>

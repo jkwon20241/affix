@@ -617,3 +617,14 @@ main { container-type: inline-size; }
 @media (max-width: 860px) { .hero .wmbig svg { width: min(68%, 420px); } .hero .wmbig { padding-bottom: var(--pad); } }
 /* smaller footer wordmark (2026-11-13) */
 .foot .wm { width: min(200px, 48vw); }
+/* landing scroll cue (2026-11-13) */
+.hero { position: relative; }
+.scrollcue { position: absolute; left: 50%; top: calc(100svh - var(--tb, 76px) - 8px - 104px); transform: translate(-50%, 14px); display: grid; justify-items: center; gap: 10px; color: var(--ink); text-decoration: none; opacity: 0; pointer-events: none; transition: opacity .6s ease, transform .6s cubic-bezier(.2, .8, .2, 1); }
+.scrollcue.on { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.scrollcue.on.gone { opacity: 0; transform: translate(-50%, 14px); pointer-events: none; }
+.scrollcue .track { width: 32px; height: 54px; border-radius: 16px; background: var(--mint3); position: relative; display: block; }
+.scrollcue .track i { position: absolute; left: 50%; top: 9px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--coral); animation: cuedrop 1.6s cubic-bezier(.5, 0, .5, 1) infinite; }
+.scrollcue .lbl { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.scrollcue:hover .track { background: var(--mint2); }
+@keyframes cuedrop { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 1; } 70% { transform: translateY(22px); opacity: 1; } 100% { transform: translateY(22px); opacity: 0; } }
+#h-hero { scroll-margin-top: calc(var(--tb, 76px) + 40px); }
