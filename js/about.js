@@ -10,5 +10,5 @@
     [morse, 'The pattern', 'Strips and dots spell lines of copy in Morse. This one reads STICK IT.']
   ];
   $('#marks').innerHTML = marks.map(([ic, h, p]) => `<div class="mk"><div class="ic" aria-hidden="true">${ic}</div><h3>${h}</h3><p>${p}</p></div>`).join('');
-  $('#album').innerHTML = (window.AFFIX_BOARDS || []).map(b => `<figure class="${b.length > 1 ? 'pair' : ''}">${b.map(([n, w, h, alt]) => `<img src="img/${n}.jpg" width="${w}" height="${h}" alt="${alt}" loading="lazy" decoding="async">`).join('')}</figure>`).join('');
+  $('#album').innerHTML = (window.AFFIX_BOARDS || []).map(b => `<figure class="${b.length > 1 ? 'pair' : ''}">${b.map(([n, w, h, alt]) => `<img src="img/${n}.jpg?v=20261113v" width="${w}" height="${h}" alt="${alt}" loading="lazy" decoding="async">`).join('')}</figure>`).join('');
 })();

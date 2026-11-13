@@ -628,3 +628,17 @@ main { container-type: inline-size; }
 .scrollcue:hover .track { background: var(--mint2); }
 @keyframes cuedrop { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 1; } 70% { transform: translateY(22px); opacity: 1; } 100% { transform: translateY(22px); opacity: 0; } }
 #h-hero { scroll-margin-top: calc(var(--tb, 76px) + 40px); }
+/* layout fixes (2026-11-13) */
+/* wider, even gutters between cards and tiles, the same across and down */
+:root { --gutter: clamp(16px, 2vw, 28px); }
+.formats, .steps, .doses, .features, .facts, .marks, .album { gap: var(--gutter); }
+/* the Next card lines up with the content of the sections above it */
+.nextpage { margin-inline: var(--pad); }
+/* app page: Try it starts on the same line as the intro text beside the headline */
+.proto { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 48px; justify-content: stretch; }
+.proto > .proto-phone { justify-self: start; }
+.tryit { max-width: none; }
+@media (max-width: 860px) { .proto { grid-template-columns: minmax(0, 1fr); } .proto > .proto-phone { justify-self: center; } }
+/* smaller header logo */
+.brand .sy { width: 36px; height: 36px; }
+@media (max-width: 860px) { .brand .sy { width: 32px; height: 32px; } }
