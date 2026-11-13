@@ -670,3 +670,5 @@ h3 { line-height: 1.15; }
 /* one color for running text */
 main p:not(.fineprint):not(.status), main .lede, main li p { color: var(--ink70); }
 .screen p { color: inherit; }
+/* Ask highlight sits inside the section, clear of the neighbouring blocks (2026-11-13) */
+.band.ask-on, .band.ask-mark { outline-offset: calc(var(--pad) / -3); }
