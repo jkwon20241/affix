@@ -179,6 +179,6 @@
 
   /* ---------- feature icons ---------- */
   $('#ic-site').innerHTML = `<svg viewBox="0 0 120 48" height="48">${[0, 1, 2, 3].map(i => `<circle cx="${18 + i * 28}" cy="24" r="12" fill="${i === 1 ? C.coral : C.white}"/>`).join('')}</svg>`;
-  $('#ic-log').innerHTML = `<svg viewBox="0 0 120 48" height="48"><rect x="4" y="16" width="70" height="16" rx="8" fill="${st().color}"/><circle cx="96" cy="24" r="14" fill="${sp().color}"/></svg>`;
-  $('#ic-refill').innerHTML = `<svg viewBox="0 0 120 48" height="48"><rect x="4" y="6" width="80" height="38" rx="10" fill="${C.mint}"/>${B.put(B.wordmark(), 16, 16, 56, 25)}</svg>`;
+  $('#ic-log').innerHTML = `<svg viewBox="0 0 120 48" height="48"><rect x="4" y="10" width="70" height="28" rx="14" fill="${st().color}"/><circle cx="96" cy="24" r="14" fill="${sp().color}"/></svg>`;
+  $('#ic-refill').innerHTML = `<svg viewBox="0 0 120 48" height="48"><rect x="4" y="10" width="80" height="28" rx="8" fill="${C.mint}"/>${[0, 1, 2].map(i => `<circle cx="${54 + i * 10}" cy="24" r="3.5" fill="${C.coral}"/>`).join('')}</svg>`;
 })();
