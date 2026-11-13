@@ -552,3 +552,51 @@ body, body::before, #topbar { background: var(--page); }
 .foot .note { color: var(--ink70); }
 .foot-credit { border-top: 2px solid var(--rule); color: var(--ink70); }
 .foot-credit a { color: var(--ink); }
+
+/* ---------- mint only (2026-11-13) ----------
+   Sections sit straight on the mint page; cards and controls use a deeper mint.
+   Text that sat on dark or white sections is ink. The app's own screens inside the phones are untouched. */
+:root { --mint2: #A6E6C8; --mint3: #93DDBB; }
+.band, .band.mint, .band.ink, .band.coral, .band.tongue, .band.paper { background: transparent; color: var(--ink); border: 0; }
+.band.ink .lede, .band.ink .label, .band.ink .muted, .band.coral .lede, .band.coral .label { color: var(--ink70); }
+.band.coral .fineprint { color: var(--ink70); }
+.pill, .band.mint .pill, .band.ink .pill { background: var(--mint2); color: var(--ink); }
+.btn-line, .band.ink .btn-line, .ask-tour .btn-line { background: var(--mint2); color: var(--ink); }
+.btn-line:hover { background: var(--mint3); }
+.band.ink .btn-ink, .ask-tour .btn-ink { background: var(--ink); color: var(--paper); }
+.askbtn, .mainnav a:hover, .mainnav a[aria-current="page"] { background: var(--mint2); }
+.askbtn:hover, .askbtn[aria-expanded="true"] { background: var(--mint3); }
+.filters button, .band.mint .filters button { background: var(--mint2); }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+/* cards */
+.format.stick, .format.stamp, .steps li, .dose, .band.mint .dose, .summary, .feature, .band.mint .feature, .facts div, .band.mint .facts div, .mk, .tasks li, .nextpage, .nextpage:hover { background: var(--mint2); }
+.steps .n, .steps p, .tasks p, .tryit .progress { color: var(--ink70); }
+.steps h3, .tryit h2, .tasks b { color: var(--ink); }
+.tasks .tk { border: 0; background: var(--mint); }
+.tasks li.done .tk { background: var(--coral); }
+.weeks .no, .band.mint .weeks .no { background: var(--mint2); }
+.opt span { background: var(--mint2); }
+.opt input:checked + span { background: var(--ink); color: var(--paper); }
+.dose .add { background: var(--mint); }
+.dose .add[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+/* footer */
+.foot-credit { border-top-color: var(--rule); }
+/* Ask overlay and tour bar */
+.sir-dim { background: rgba(185, 240, 215, .55); }
+.sir-bar { background: var(--mint2); color: var(--ink); box-shadow: 0 18px 50px rgba(17, 19, 22, .16); }
+.sir-bar input { color: var(--ink); }
+.sir-bar input::placeholder { color: var(--ink60); }
+.sir-bar:focus-within { box-shadow: 0 0 0 3px var(--coral), 0 18px 50px rgba(17, 19, 22, .16); }
+.sir-ic { background: var(--mint); color: var(--ink); }
+.sir-send { background: var(--ink); color: var(--paper); }
+.orb { background: var(--mint); }
+.sir-out { background: var(--mint); }
+.sir-card { background: var(--mint2); }
+.sir-card:hover { background: var(--mint3); }
+.sir-sugg button { background: var(--mint2); }
+.sir-sugg button:hover { background: var(--mint3); box-shadow: none; }
+.ask-tour { background: var(--mint2); color: var(--ink); }
+.ask-tour-txt .label, .ask-tour-txt span:last-child { color: var(--ink70); }
+.ask-count i { background: var(--mint3); }
+.ask-count i.done { background: var(--ink); }
+.ask-end { color: var(--ink); }

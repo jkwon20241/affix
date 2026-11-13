@@ -23,7 +23,7 @@
   const foot = document.getElementById('foot');
   if (foot) {
     const m = B.morse('STICK IT STAMP IT GO STICK IT STAMP IT GO ', 40);
-    let s = ''; const cols = ['#FF9A3C', '#7CD3C1', '#AA9EFF', C.mint];
+    let s = ''; const cols = ['#FF9A3C', '#1F6E52', '#AA9EFF', '#FF7DB8'];
     for (let rep = 0; rep < 2; rep++) m.items.forEach((it, i) => { const x = it.x + rep * m.width;
       s += it.type === 'dot' ? `<circle cx="${x + 20}" cy="20" r="20" fill="${C.coral}"/>` : `<rect x="${x}" y="0" width="${it.w}" height="40" rx="20" fill="${cols[i % cols.length]}"/>`; });
     foot.innerHTML = `<div class="foot">
