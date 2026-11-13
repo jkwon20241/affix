@@ -42,7 +42,7 @@
     else stampRow = `<div class="arow">${disc(p)}<span><b>Stamp · ${p.full}</b><small>Not due today. Next: November 7</small></span><span></span></div>`;
     let wk = ''; let n = 0; for (let d = 4; d <= 10; d++) { const on = S.log[d] && S.log[d].stick; if (on) n++; wk += `<b style="background:${on ? B.D[S.log[d].stick].color : C.line}" title="Oct ${d}"></b>`; }
     const allDone = L.stick && (L.stamp || !stampDueToday());
-    const msg = allDone ? `All done for today. ${nx ? `Next Stamp: ${SITE[nx.site - 1].toLowerCase()}, October ${nx.d}.` : 'Next Stamp: November 7.'}` : (L.stick ? 'One more thing today: your Stamp.' : 'Start with your strip.');
+    const msg = allDone ? `All done for today. ${nx ? `Next Stamp: ${SITE[nx.site - 1].toLowerCase()}, October ${nx.d}.` : 'Next Stamp: November 7.'}` : (L.stick ? 'Remaining today: the Stamp.' : 'Begin with today’s strip.');
     return `<section class="view" aria-label="Today">
       <span class="k">${dateName(TODAY)}</span><span class="t">Good morning, Sam.</span>
       <div class="card"><h3>Today</h3>${stickRow}${stampRow}</div>
@@ -57,7 +57,7 @@
       <button type="button" class="back" data-act="back">← Today</button>
       <span class="k">Week 2 · site ${site} of 4</span><span class="t">${SITE[site - 1]}</span>
       <div class="stampmap" id="smap">${B.bodyMap({ site, fill: C.mint })}${L.stamp ? pos(20, 'placed', p.color) : pos(26, 'target')}</div>
-      <div class="card"><span>${L.stamp ? `Click. Logged at ${L.stamp.t}. The ${p.name.toLowerCase()} mark fades by tomorrow.` : `Click a ${p.full} cartridge in, hold the Stamp on the coral site, then press until it clicks.`}</span>
+      <div class="card"><span>${L.stamp ? `Logged at ${L.stamp.t}. The mark fades within a day.` : `Insert a ${p.full} cartridge, hold the Stamp on the coral site and press until it clicks.`}</span>
       ${L.stamp ? '<button type="button" class="btn btn-ink wide" data-act="back">Done</button>' : '<button type="button" class="hold" id="hold" aria-describedby="holdhint"><span class="fill"></span><span>Press and hold to stamp</span></button><span class="note" id="holdhint">Hold with the mouse, a finger, or the space bar.</span>'}</div>
     </section>`;
   }
@@ -71,7 +71,7 @@
       <span class="k">Stamp sites</span><span class="t">${nx ? (nx.d === TODAY ? 'This week: ' : 'Next: ') + SITE[nx.site - 1].toLowerCase() : 'Next: November 7'}</span>
       <div class="stampmap">${B.bodyMap({ site: nx ? focus : 0, fill: C.mint })}</div>
       <ul class="slist">${rows}</ul>
-      <p class="note">Never the same site twice in a row. The coral site is the next one.</p>
+      <p class="note">No site is used twice in a row. The coral site is next.</p>
     </section>`;
   }
   function vMonth() {
@@ -123,14 +123,14 @@
   function done(t) { if (!S.tasks[t]) { S.tasks[t] = true; tasks(true); } }
   function tasks(flash) {
     let n = 0; document.querySelectorAll('#tasks li').forEach(li => { const on = !!S.tasks[li.dataset.task]; li.classList.toggle('done', on); if (on) n++; });
-    $('#progress').textContent = n === 4 ? 'All four done. That’s the whole routine: a few seconds a day, one press a week.' : n ? `${n} of 4 done.` : '';
+    $('#progress').textContent = n === 4 ? 'All four tasks complete. The routine takes a few seconds a day and one press a week.' : n ? `${n} of 4 complete.` : '';
   }
 
   /* ---------- Stick: strip dissolves on the tongue ---------- */
   function takeStick() {
     const s = st(), ov = $('#overlay');
     ov.innerHTML = `<div class="sheet" role="dialog" aria-label="Stick in progress"><svg viewBox="0 0 220 150" aria-hidden="true"><ellipse cx="110" cy="80" rx="96" ry="66" fill="#E58C86"/><ellipse cx="110" cy="74" rx="84" ry="56" fill="${C.tongue}"/><rect id="ostrip" x="40" y="58" width="140" height="34" rx="17" fill="${s.color}" transform="rotate(-8 110 75)"/></svg>
-      <div class="count" id="ocount">10</div><span class="note">Seconds left</span><span>Let it melt. No water needed.</span></div>`;
+      <div class="count" id="ocount">10</div><span class="note">Seconds left</span><span>Allow it to dissolve. No water is needed.</span></div>`;
     ov.hidden = false;
     const finish = () => { S.log[TODAY] = { ...(S.log[TODAY] || {}), stick: S.stick, t: NOW }; setTimeout(() => { ov.hidden = true; ov.innerHTML = ''; render(); done('stick'); }, still ? 0 : 500); };
     if (!gs) { $('#ocount').textContent = '0'; finish(); return; }

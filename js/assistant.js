@@ -5,7 +5,7 @@
 (function () {
   const page = document.body.dataset.page;
   const PAGES = {
-    home: { file: 'index.html', name: 'Home', summary: 'Affix is a vitamin brand with no pills. A thin Stick strip melts on your tongue every morning, and once a week a press-on Stamp goes on your upper arm or thigh. The app keeps track of both.',
+    home: { file: 'index.html', name: 'Home', summary: 'Affix is a vitamin brand without pills. A Stick strip dissolves on the tongue each morning, and a press-on Stamp is applied to the upper arm or thigh once a week. The app records both.',
       sections: [
         ['intro', 'Intro', 'The idea in one line: vitamins you stick and stamp.', 'start hero overview idea'],
         ['formats', 'Two formats', 'Stick is a strip that dissolves on the tongue in about 10 seconds, every day. Stamp is a press-on applicator for the arm or thigh, once a week, leaving a mark that fades in a day.', 'stick stamp strip tongue arm thigh formats difference applicator mark'],
@@ -132,7 +132,7 @@
       .filter(r => r.sc >= 1).sort((a, b) => b.sc - a.sc).slice(0, 3).map(r => r.s); }
   function localAnswer(q, kind) {
     if (kind === 'summary' || /summar|overview|what('|’)?s on this page|tl;?dr/i.test(q)) return { text: `Here’s the ${here.name === 'Home' ? 'home' : here.name.replace(/^The /, '')} page. ${here.summary}`, go: here.sections.map(s => s[0]).slice(0, 3), tour: true };
-    if (/real|health|medical|safe|doctor/i.test(q)) return { text: 'Affix doesn’t give medical advice. Talk to your doctor or pharmacist before starting any supplement, especially if you take medication.', go: ['six'] };
+    if (/real|health|medical|safe|doctor/i.test(q)) return { text: 'Affix does not provide medical advice. Consult a doctor or pharmacist before starting any supplement, especially when taking medication.', go: ['six'] };
     if (/which.*stamps?|stamp doses/i.test(q)) return { text: 'The Stamps are Spark B12 and Sun D3, once a week, and Iron Fe, once a month.', go: ['six', 'range'] };
     if (/which.*(sticks?|strips?)|strip doses|stick doses/i.test(q)) return { text: 'The Stick strips are Citrus C and Zinc Zn for mornings, and Calm Mg for evenings.', go: ['six', 'range'] };
     if (/save.*month|build.*month|my month/i.test(q)) return { text: 'Pick one Stick and one Stamp in Build your month, then press Save my month. It shows up in the top bar.', go: ['build'] };
@@ -140,10 +140,10 @@
     if (/what does the app do|app do/i.test(q)) return { text: 'The app picks the site for each Stamp, logs your strips and Stamps, and ships refills on time.', go: ['features', 'try'] };
     if (/how much|price|cost|box/i.test(q)) return { text: 'A month is a Stick pack at $24 plus your Stamp: $28 for Spark or Sun, $12 for Iron. The applicator is free with your first box, and shipping is free.', go: ['build'] };
     if (/who (designed|made|created)|designer/i.test(q)) return { text: 'Affix’s brand, packaging, app and website were designed by Jennie Kwon.', go: ['credits'] };
-    if (/stick or stamp|difference/i.test(q)) return { text: 'Stick is a strip that melts on your tongue every morning. Stamp is a press on your arm or thigh once a week.', go: ['formats'] };
-    if (/^(hi|hello|hey)\b/i.test(q) && q.length < 14) return { text: 'Hi. Ask me where something is, or say “walk me through it” for a tour.', go: [] };
+    if (/stick or stamp|difference/i.test(q)) return { text: 'Stick is a strip that dissolves on the tongue each morning. Stamp is a press-on dose for the arm or thigh, applied once a week.', go: ['formats'] };
+    if (/^(hi|hello|hey)\b/i.test(q) && q.length < 14) return { text: 'Hello. Ask where something is, or choose “Walk me through it” for a tour.', go: [] };
     const hits = search(q);
-    if (!hits.length) return { text: 'I couldn’t find that here. Try asking about packaging, the doses, the app or the photos.', go: [] };
+    if (!hits.length) return { text: 'No match was found. Try asking about packaging, the doses, the app or the photographs.', go: [] };
     const name = s => s.page === page ? s.title : `${s.title} on ${PAGES[s.page].name}`;
     return { text: `I found it in ${name(hits[0])}.`, go: hits.map(h => h.id) };
   }

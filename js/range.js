@@ -2,8 +2,8 @@
   const { B, C, store, setDot, bump } = window.Affix;
   const $ = s => document.querySelector(s);
   const NOTE = {
-    citrus: 'A citrus-flavored strip for the morning.', zinc: 'A cool mint strip. Same routine, different taste.', calm: 'A berry strip for the evening, before bed.',
-    spark: 'Leaves a pink mark. Once a week.', sun: 'Leaves a yellow mark. Once a week.', iron: 'Leaves a rust mark. Once a month.'
+    citrus: 'A citrus-flavored strip for the morning.', zinc: 'A mint-flavored strip for the morning.', calm: 'A berry-flavored strip for the evening.',
+    spark: 'Leaves a pink mark. Applied weekly.', sun: 'Leaves a yellow mark. Applied weekly.', iron: 'Leaves a rust mark. Applied monthly.'
   };
   const saved = store.get() || {};
   const state = { stick: saved.stick || 'citrus', stamp: saved.stamp || 'spark' };

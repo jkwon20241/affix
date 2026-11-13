@@ -35,7 +35,7 @@
   }
 
   // Next page, so every page ends with a clear way on.
-  const NEXT = { home: ['range.html', 'Range', 'Six doses, two ways, and a builder for your month.'], range: ['app.html', 'Application', 'Stick, stamp and track it, all from your phone.'], app: ['about.html', 'About', 'The idea, the identity system and the brand out in the world.'], about: ['index.html', 'Back to the start', 'Vitamins you stick and stamp.'] }[page];
+  const NEXT = { home: ['range.html', 'Range', 'Six doses, two formats and a monthly builder.'], range: ['app.html', 'Application', 'Scheduling and records for every dose.'], app: ['about.html', 'About', 'The concept, the identity system and the brand in use.'], about: ['index.html', 'Back to the start', 'Vitamins you stick and stamp.'] }[page];
   if (foot && NEXT) { const a = document.createElement('a'); a.className = 'band nextpage'; a.href = NEXT[0];
     a.innerHTML = `<span><span class="label">Next</span><b>${NEXT[1]}</b><p>${NEXT[2]}</p></span><span class="arrow" aria-hidden="true">→</span>`; foot.before(a); }
   // A hairline under the top bar once the page scrolls.

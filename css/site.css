@@ -646,3 +646,27 @@ main { container-type: inline-size; }
 .sir { bottom: calc(clamp(56px, 12vh, 128px) + env(safe-area-inset-bottom, 0px)); }
 .sir-out { max-height: min(56vh, 520px); }
 @media (max-width: 520px) { .sir { bottom: calc(40px + env(safe-area-inset-bottom, 0px)); } }
+
+/* ---------- one body size, leading and rag across the site (2026-11-13) ----------
+   Every running paragraph uses the same size and leading. Lines are capped near 60 characters
+   so the right edge rags evenly, with no hyphenation and no single-word last lines. */
+:root { --fs-body: 17px; --lh-body: 1.6; --measure: 36em; }
+@media (max-width: 860px) { :root { --fs-body: 16px; } }
+body { font-size: var(--fs-body); line-height: var(--lh-body); }
+p, .lede, .format p, .steps p, .rotation .note, .dose p, .feature p, .mk p, .story p, .tasks p, .tryit .progress,
+.nextpage p, .foot .note, .inbox li, .sir-out > p:not(.sir-heard):not(.sir-say), .sir-out ul, .status {
+  font-size: var(--fs-body); line-height: var(--lh-body); }
+p, .lede { max-width: var(--measure); text-wrap: pretty; hyphens: manual; }
+.lede { color: var(--ink70); }
+.story p + p { margin-top: 1em; }
+/* headings: balanced rag, slightly more open leading on the multi-line sizes */
+h1, h2 { line-height: 1.02; text-wrap: balance; }
+h3 { line-height: 1.15; }
+/* small tier: labels and fine print share one size */
+.fineprint, .foot-credit, .dose .dfacts { font-size: 14px; line-height: 1.55; }
+/* the app prototype keeps its own phone-scale type */
+.screen p { max-width: none; line-height: 1.4; }
+.screen p.note { font-size: 13px; }
+/* one color for running text */
+main p:not(.fineprint):not(.status), main .lede, main li p { color: var(--ink70); }
+.screen p { color: inherit; }
